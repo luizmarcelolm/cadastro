@@ -1,29 +1,35 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
+
+
 function App() {
-    return ( <
-        div className = "App" >
-        <
-        header className = "App-header" >
-        <
-        img src = { logo }
-        className = "App-logo"
-        alt = "logo" / >
-        <
-        p >
-        <
-        h1 > TELA DE CADASTRO < /h1>
-        Edit < code > src / App.js < /code> and save to reload. <
-        /p> <
-        a className = "App-link"
-        href = "https://reactjs.org"
-        target = "_blank"
-        rel = "noopener noreferrer" >
-        Learn React <
-        /a> <
-        /header> <
-        /div>
+
+    const [formValues, setFormValues] = useState({});
+
+    const handleInputChange = (e) =>{
+   
+    const {name, value} = e.target;
+
+    setFormValues({...formValues, [name]: value});
+   
+   }
+
+    const handleSubmit = (e) =>{
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData)
+
+      console.log('***handleSubmit', data);
+    };
+
+    console.log('***handleValue', formValues);
+    return (
+      <form onSubmit = {handleSubmit}>
+         <input type="text" name="name" placeholder="name" onChange={handleInputChange} />
+         <input type="text" name="email" placeholder="email" onChange={handleInputChange} />
+         <button type="submit">Enviar</button>
+      </form>
     );
 }
 
