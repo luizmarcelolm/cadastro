@@ -3,15 +3,30 @@ body {
 }
 
 form{
-    max-width: 600px;
+    max-width: 300px;
     margin: 0 auto;
     padding: 60px;
+    text-align: center;
 }
 
-input,select, textarea, .radios, .checks{
+input{
+    margin: 0 auto;
+    text-align: left;
+}
+
+select{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.input,select, textarea, .radios, .checks{
     margin-bottom: 20px;
 }
 
 .radios label, .checks label{
-    margin-right: 20px;
+    margin-right: 10px;
+}
+.container{
+    border:solid #36648B;
+    border-radius: 20px;
 }

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 
+   
+  function App() {
 
-
-function App() {
-
+           
     const [formValues, setFormValues] = useState({});
 
     const handleInputChange = (e) =>{
@@ -15,6 +15,7 @@ function App() {
    
    }
 
+
     const handleSubmit = (e) =>{
       e.preventDefault();
       const formData = new FormData(e.target);
@@ -23,14 +24,38 @@ function App() {
       console.log('***handleSubmit', data);
     };
 
-    console.log('***handleValue', formValues);
+    
     return (
-      <form onSubmit = {handleSubmit}>
-         <input type="text" name="name" placeholder="name" onChange={handleInputChange} />
-         <input type="text" name="email" placeholder="email" onChange={handleInputChange} />
-         <button type="submit">Enviar</button>
-      </form>
+             
+         <form onSubmit = {handleSubmit}>
+           <div className="container">
+            <h1>CADASTRO DEV</h1>
+            <input class="input" type="text" name="name" placeholder="nome" onChange={handleInputChange} value={formValues.name || ''}/>
+            <input class="input"  type="email" name="email" placeholder="email" onChange={handleInputChange} value={formValues.email || ''}/>
+
+            <div className="radios">
+              <p>Sexo</p>
+              <label><input type="radio" value="masculino" name="sexo"/>Masculino</label>
+              <label><input type="radio" value="feminino" name="sexo"/>Feminino</label>
+            </div>  
+
+            <p>Selecione a linguagem</p>
+            <select name="language"onChange={handleInputChange} value={formValues.language || ''}>
+              <option value="javascript">JavaScript</option>
+              <option value="php">PHP</option> 
+              <option value="ruby">Ruby</option>
+              <option value="java">Java</option>
+              <option value="outros">Outros</option>
+            </select> 
+           
+            <button type="submit" onclick="validate">Enviar</button>
+            </div> 
+         </form>
+      
     );
 }
 
+
 export default App;
+
+
