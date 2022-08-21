@@ -19,7 +19,7 @@ select{
     text-align: center;
 }
 
-.input,select, textarea, .radios, .checks{
+.input, select, textarea, .radios, .checks{
     margin-bottom: 20px;
 }
 
@@ -29,4 +29,8 @@ select{
 .container{
     border:solid #36648B;
     border-radius: 20px;
+}
+
+.erro{
+    border:solid red;
 }
